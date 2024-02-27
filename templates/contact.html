@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Title Page -->
+    <section class="bg-title-page p-t-10 p-b-10"> <!-- Reduced padding here -->
+        <h2 class="l-text2 t-center">
+            Contact Us
+        </h2>
+        <p class="m-text13 t-center">
+            Get in touch with us using the form below or contact us directly.
+        </p>
+    </section>
+
+    <!-- Content page -->
+    <section class="bgwhite p-t-10 p-b-20"> <!-- Reduced padding here -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-9 col-lg-9 p-b-20">
+                    <!-- Contact Form -->
+                    <!-- Contact Form -->
+                <form action="{% url 'core:contact' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <!-- Contact Card -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Contact Information</h5>
+                            <p class="card-text">Phone: +254704636244</p>
+                            <p class="card-text">Email: ken@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

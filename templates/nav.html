@@ -1,0 +1,158 @@
+{% load static %}
+{% load cart_template_tags %}
+{% load category_template_tags %}
+
+<style>
+	.topbar {
+		background-color: white;
+		color: black !important;
+	}
+	.topbar a:hover{
+		color: black;
+	}
+
+	.search-input {
+		border-bottom: 1px solid gray;
+	}
+</style>
+<!-- Header -->
+<header class="header1">
+		<!-- Header desktop -->
+		<div class="container-menu-header">
+			<div class="topbar">
+				<div class="topbar-social">
+					<a href="#" onclick="sendWhatsAppMessage(); return false;" class="topbar-social-item fab fa-whatsapp"></a>
+					<!-- <a href="#" class="topbar-social-item fab fa-facebook"></a>
+					<a href="#" class="topbar-social-item fab fa-instagram"></a>
+					<a href="#" class="topbar-social-item fab fa-twitter"></a> -->
+				</div>
+
+				<span class="topbar-child1">
+					Free shipping for purchases around Nairobi CBD
+				</span>
+
+				<div class="topbar-child2">
+					<span class="topbar-email">
+						Contacts: +254704636244
+					</span>
+				</div>
+			</div>
+
+			<div class="wrap_header">
+				<!-- Logo -->
+				<a href="/" class="logo">
+					<p style="color: black; "><b style="font-size: 22px;">SmartTech Kenya</p>
+				</a>
+
+				<div class="search-bar">
+                    <form method="get" action="{% url 'core:search' %}">
+                        <input class="search-input" type="text" name="q" placeholder="Search Products...">
+                        <button type="submit" class="">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+
+				<!-- Header Icon -->
+				<div class="header-icons">
+					<nav class="menu">
+						<ul class="main_menu">
+							<li>
+								<a href="/">Home</a>
+
+							</li>
+
+							<li>
+								<a href="/shop/">Shop</a>
+							</li>
+
+							<li>
+								<a href="/contact/">Contacts</a>
+							</li>
+
+							<li>
+								<a href="/about/">About</a>
+							</li>
+
+							<!-- {% categories %} -->
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="wrap_header cats">
+					<nav class="menu">
+						<ul class="main_menu">
+							{% categories %}
+						</ul>
+					</nav>
+			</div>
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap_header_mobile">
+			<!-- Logo moblie -->
+			<a href="index.html" class="logo-mobile">
+				<h5 style="font-weight: 700;">SmartTech Kenya</h5>
+			</a>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu">
+				<!-- Header Icon mobile -->
+
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Menu Mobile -->
+		<div class="wrap-side-menu" >
+			<nav class="side-menu">
+				<ul class="main-menu">
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<span class="topbar-child1">
+							Free shipping for purchases around Nairobi CBD
+						</span>
+					</li>
+
+					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+						<div class="topbar-child2-mobile">
+							<span class="topbar-email">
+								Contacts: +254704636244
+							</span>
+						</div>
+					</li>
+
+					<li class="item-topbar-mobile p-l-10">
+						<div class="topbar-social-mobile">
+							<a href="#" class="topbar-social-item fa fa-whatsapp"></a>
+							<a href="#" class="topbar-social-item fa fa-instagram"></a>
+							<a href="#" class="topbar-social-item fa fa-twitter"></a>
+						</div>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="/">Home</a>
+					</li>
+
+					<li class="item-menu-mobile">
+						<a href="/shop">Shop</a>
+					</li>
+					
+					<li>
+						<a href="/contact/">Contacts</a>
+					</li>
+
+					<li>
+						<a href="/about/">About</a>
+					</li>
+					{% categories_mobile %}
+
+					
+
+				</ul>
+			</nav>
+		</div>
+	</header>

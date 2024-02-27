@@ -1,0 +1,116 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<!-- breadcrumb -->
+<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+  <a href="/" class="s-text16">
+    Home
+    <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+  </a>
+
+  <a href="{% url 'core:category' object.category.slug %}" class="s-text16">
+    {{ object.category }}
+    <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+  </a>
+
+  <span class="s-text17"> {{object.title}} </span>
+</div>
+
+<!-- Product Detail -->
+<div class="container bgwhite p-t-35 p-b-80">
+  <div class="flex-w flex-sb">
+    <div class="w-size13 p-t-30 respon5">
+      <div class="wrap-slick3 flex-sb flex-w">
+        <div class="wrap-slick3-dots"></div>
+
+        <div class="slick3">
+          <div class="item-slick3" data-thumb="{{ object.image1.url }}">
+            <div class="wrap-pic-w">
+              <img src="{{ object.image1.url }}" alt="{{ object.title }}" />
+            </div>
+          </div>
+          <div class="item-slick3" data-thumb="{{ object.image2.url }}">
+            <div class="wrap-pic-w">
+              <img src="{{ object.image2.url }}" alt="{{ object.title }}" />
+            </div>
+          </div>
+          <div class="item-slick3" data-thumb="{{ object.image3.url }}">
+            <div class="wrap-pic-w">
+              <img src="{{ object.image3.url }}" alt="{{ object.title }}" />
+            </div>
+          </div>
+          <div class="item-slick3" data-thumb="{{ object.image4.url }}">
+            <div class="wrap-pic-w">
+              <img src="{{ object.image4.url }}" alt="{{ object.title }}" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .inquire {
+        padding: 10px 18px;
+        background-color: rgb(8, 178, 245);
+        border-radius: 4px;
+        color: white;
+      }
+    </style>
+
+    <div class="w-size14 p-t-30 respon5">
+      <h4 class="product-detail-name m-text16 p-b-13">{{object.title}}</h4>
+
+      {% if object.discount_price %}
+      <span class="block2-oldprice m-text7 p-r-5" style="font-size: 1.5rem">
+        Ksh. {{ object.price }}
+      </span>
+
+      <span class="block2-newprice m-text8 p-r-5" style="font-size: 1.5rem">
+        Ksh. {{ object.discount_price }}
+      </span>
+      {% else %}
+      <span class="m-text17"> Ksh. {{ object.price }} </span>
+      {% endif %}
+
+      <p class="s-text8 p-t-10">{{ object.description_short }}</p>
+
+
+      <div
+        class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+        <h5
+          class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+          Description
+          <i
+            class="down-mark fs-12 color1 fa fa-minus dis-none"
+            aria-hidden="true"></i>
+          <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+        </h5>
+
+        <div class="dropdown-content dis-none p-t-15 p-b-23">
+          {% for sentence in description_sentences %}
+            <p class="s-text8">{{ sentence }}</p>
+          {% endfor %}
+        </div>
+        <button id="inquire" class="inquire">Inquire Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Relate Product -->
+<section class="relateproduct bgwhite p-t-45 p-b-138"></section>
+
+
+<!-- Back to top -->
+<div class="btn-back-to-top bg0-hov" id="myBtn">
+  <span class="symbol-btn-back-to-top">
+    <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+  </span>
+</div>
+
+<!-- Container Selection -->
+<div id="dropDownSelect1"></div>
+<div id="dropDownSelect2"></div>
+
+{% endblock content %}
